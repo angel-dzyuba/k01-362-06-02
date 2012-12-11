@@ -1,0 +1,20 @@
+#!/bin/bash
+echo
+echo "Программа студентки Дзюбы Ангелины группы К01-362"
+echo
+while :; do
+echo 'Введите имя пользователя'
+   read u
+   grep $u /etc/passwd >/dev/null
+    if [ $? -ne 0 ]; then
+    echo 'Пользователь с таким именем не заригистрирован'
+    else [ $? -eq 0 ]
+    du -b /home/$u
+    fi
+   echo 'Желаете продолжить? ([y],[n])'
+   read a
+   case $a in
+   n) exit ;;
+   y) echo ;;
+   esac
+done 
